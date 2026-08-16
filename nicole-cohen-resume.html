@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nicole Cohen — IT Support &amp; Network Administration</title>
+<meta name="description" content="Nicole Cohen — IT professional in Saint Cloud, Florida. Network administration, Windows Server, Active Directory, cloud, virtualization and cybersecurity. Bilingual English/Spanish.">
+<meta name="theme-color" content="#0B0F14">
+<meta property="og:title" content="Nicole Cohen — IT Support &amp; Network Administration">
+<meta property="og:description" content="Network administration, Windows Server, Active Directory, cloud and cybersecurity. Bilingual English/Spanish. Saint Cloud, FL.">
+<meta property="og:type" content="profile">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   Nicole Cohen — resume site
+   Dark technical palette, cyan accent, monospace detailing.
+   ========================================================================== */
+
+:root{
+  --bg:      #0B0F14;
+  --bg-2:    #0E141B;
+  --panel:   #111A23;
+  --panel-2: #16212C;
+  --line:    rgba(255,255,255,.08);
+  --line-2:  rgba(255,255,255,.16);
+
+  --accent:  #22D3EE;
+  --accent-2:#67E8F9;
+  --accent-dk:#0E7490;
+  --glow:    rgba(34,211,238,.28);
+
+  --ink:     #E6EDF3;
+  --ink-2:   #B4C2CE;
+  --mute:    #7D8FA0;
+
+  --r-sm: 6px;
+  --r:    12px;
+  --r-lg: 18px;
+
+  --nav-h: 74px;
+  --shell: 1180px;
+  --ease: cubic-bezier(.22,1,.36,1);
+
+  --f-display:'Sora', system-ui, sans-serif;
+  --f-body:   'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-mono:   'JetBrains Mono', ui-monospace, Consolas, monospace;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; scroll-padding-top:calc(var(--nav-h) + 16px); }
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--f-body); font-size:16px; line-height:1.7;
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+body.is-locked{ overflow:hidden; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; cursor:pointer; }
+h1,h2,h3{ margin:0; line-height:1.15; }
+p{ margin:0; }
+ul,ol{ margin:0; padding:0; list-style:none; }
+svg{ max-width:100%; }
+
+.shell{ width:100%; max-width:var(--shell); margin:0 auto; padding:0 24px; }
+
+.skip-link{
+  position:absolute; left:-999px; top:0; z-index:99;
+  background:var(--accent); color:#04121A; padding:10px 16px; font-weight:700;
+}
+.skip-link:focus{ left:12px; top:12px; }
+
+:where(a,button,input,[tabindex]):focus-visible{
+  outline:2px solid var(--accent); outline-offset:3px; border-radius:4px;
+}
+
+.js [data-reveal]{ opacity:0; }
+.js .hero__name .w{ opacity:0; }
+
+/* ---------- primitives ---------- */
+.ico{ width:17px; height:17px; flex:0 0 auto; }
+.ico--lg{ width:24px; height:24px; }
+
+.btn{
+  --b-bg:transparent; --b-fg:var(--ink); --b-bd:var(--line-2);
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  padding:11px 20px; border:1px solid var(--b-bd); border-radius:var(--r-sm);
+  background:var(--b-bg); color:var(--b-fg);
+  font-family:var(--f-body); font-size:14.5px; font-weight:600; letter-spacing:.01em;
+  white-space:nowrap; position:relative; overflow:hidden; isolation:isolate;
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s, background .25s;
+}
+.btn::after{
+  content:''; position:absolute; inset:0 auto 0 -60%; width:45%; z-index:-1;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);
+  transform:skewX(-18deg); transition:left .65s var(--ease);
+}
+.btn:hover::after{ left:130%; }
+.btn:hover{ transform:translateY(-2px); }
+.btn--accent{
+  --b-bg:var(--accent); --b-fg:#04121A; --b-bd:var(--accent);
+  box-shadow:0 8px 24px -10px var(--glow);
+}
+.btn--accent:hover{ background:var(--accent-2); box-shadow:0 14px 32px -10px var(--glow); }
+.btn--ghost{ --b-bg:rgba(255,255,255,.03); }
+.btn--ghost:hover{ border-color:var(--accent); color:var(--accent); }
+.btn--lg{ padding:14px 26px; font-size:15.5px; }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:9px;
+  font-family:var(--f-mono); font-size:12.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--mute); margin-bottom:20px;
+}
+.eyebrow .dot{
+  width:7px; height:7px; border-radius:50%; background:var(--accent);
+  box-shadow:0 0 0 4px rgba(34,211,238,.16);
+}
+.accent{ color:var(--accent); }
+
+.section{ padding:clamp(60px,7vw,104px) 0; position:relative; }
+.section--alt{
+  background:
+    radial-gradient(80% 60% at 50% 0%, rgba(34,211,238,.05), transparent 65%),
+    var(--bg-2);
+  border-block:1px solid var(--line);
+}
+.section__head{ display:flex; align-items:center; gap:14px; margin-bottom:34px; }
+.section__num{
+  font-family:var(--f-mono); font-size:13px; font-weight:700; color:var(--accent);
+  border:1px solid rgba(34,211,238,.35); border-radius:var(--r-sm);
+  padding:3px 9px; flex:0 0 auto;
+}
+.h2{
+  font-family:var(--f-display); font-weight:700;
+  font-size:clamp(24px,3.4vw,36px); letter-spacing:-.02em;
+}
+
+/* ==========================================================================
+   NAV
+   ========================================================================== */
+.nav{
+  position:fixed; inset:0 0 auto 0; z-index:60;
+  background:rgba(11,15,20,.72); backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line); transition:background .3s, box-shadow .3s;
+}
+.nav.is-stuck{ background:rgba(9,12,17,.94); box-shadow:0 14px 40px -22px #000; }
+.nav__inner{ display:flex; align-items:center; gap:24px; height:var(--nav-h); }
+
+.brand{ display:flex; align-items:center; gap:12px; flex:0 0 auto; }
+.brand__mark{
+  display:grid; place-items:center; width:40px; height:40px; border-radius:10px;
+  background:linear-gradient(140deg, var(--accent), var(--accent-dk));
+  color:#04121A; font-family:var(--f-mono); font-weight:700; font-size:15px;
+}
+.brand__name{
+  display:flex; flex-direction:column; line-height:1.25;
+  font-family:var(--f-display); font-weight:700; font-size:15.5px;
+}
+.brand__name em{
+  font-style:normal; font-family:var(--f-mono); font-size:11px;
+  letter-spacing:.09em; color:var(--mute); text-transform:uppercase;
+}
+
+.nav__links{ display:flex; align-items:center; gap:24px; margin-left:auto; }
+.nav__links > a{
+  font-size:14.5px; color:var(--ink-2); position:relative; padding:5px 0;
+  transition:color .25s;
+}
+.nav__links > a::after{
+  content:''; position:absolute; left:0; right:100%; bottom:0; height:2px;
+  background:var(--accent); transition:right .35s var(--ease);
+}
+.nav__links > a:hover{ color:var(--ink); }
+.nav__links > a:hover::after,.nav__links > a.is-active::after{ right:0; }
+.nav__links > a.is-active{ color:var(--accent); }
+
+.nav__print{ flex:0 0 auto; }
+.nav__progress{
+  height:2px; width:0%;
+  background:linear-gradient(90deg,var(--accent-dk),var(--accent));
+  box-shadow:0 0 12px var(--glow);
+}
+
+.burger{
+  display:none; width:42px; height:42px; border:1px solid var(--line-2);
+  border-radius:var(--r-sm); background:transparent; padding:0;
+  flex-direction:column; align-items:center; justify-content:center; gap:5px;
+}
+.burger span{ display:block; width:19px; height:2px; background:var(--ink); transition:transform .3s var(--ease), opacity .2s; }
+.burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero{
+  position:relative; overflow:hidden;
+  padding:calc(var(--nav-h) + clamp(48px,7vw,92px)) 0 clamp(56px,7vw,96px);
+  background:
+    radial-gradient(90% 70% at 80% 10%, rgba(34,211,238,.10), transparent 60%),
+    linear-gradient(180deg,#0C1219,var(--bg) 70%);
+}
+.hero__grid{
+  position:absolute; inset:0; pointer-events:none; opacity:.6;
+  background-image:
+    linear-gradient(90deg, var(--line) 1px, transparent 1px),
+    linear-gradient(180deg, var(--line) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(80% 60% at 50% 30%,#000,transparent 78%);
+}
+.hero__glow{
+  position:absolute; width:680px; height:680px; right:-180px; top:-220px;
+  background:radial-gradient(circle, rgba(34,211,238,.18), transparent 62%);
+  filter:blur(12px); pointer-events:none;
+}
+.hero__inner{
+  position:relative; display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:clamp(28px,4vw,56px); align-items:center;
+}
+.hero__name{
+  font-family:var(--f-display); font-weight:800;
+  font-size:clamp(46px,7.4vw,88px); line-height:.98; letter-spacing:-.035em;
+  margin-bottom:16px;
+}
+.hero__name .line{ display:block; overflow:hidden; }
+.hero__name .w{ display:block; }
+.hero__role{
+  font-family:var(--f-mono); font-size:clamp(13px,1.5vw,15px);
+  letter-spacing:.05em; color:var(--accent); margin-bottom:20px;
+}
+.hero__lede{ color:var(--ink-2); max-width:52ch; font-size:16px; }
+.hero__actions{ display:flex; gap:12px; flex-wrap:wrap; margin:28px 0 26px; }
+
+.hero__links{
+  display:flex; flex-wrap:wrap; gap:10px 24px;
+  padding-top:22px; border-top:1px solid var(--line);
+}
+.hero__links a{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--f-mono); font-size:13px; color:var(--ink-2);
+  transition:color .25s;
+}
+.hero__links a:hover{ color:var(--accent); }
+.hero__links .ico{ color:var(--accent); }
+
+/* terminal card */
+.term{
+  border:1px solid var(--line-2); border-radius:var(--r);
+  background:linear-gradient(180deg,#0D141C,#0A1017);
+  box-shadow:0 40px 80px -40px #000, 0 0 0 1px rgba(34,211,238,.06);
+  overflow:hidden;
+}
+.term__bar{
+  display:flex; align-items:center; gap:7px;
+  padding:11px 14px; background:#0F1720; border-bottom:1px solid var(--line);
+}
+.term__dot{ width:10px; height:10px; border-radius:50%; background:#2A3844; }
+.term__dot:first-child{ background:#F87171; }
+.term__dot:nth-child(2){ background:#FBBF24; }
+.term__dot:nth-child(3){ background:#4ADE80; }
+.term__title{
+  margin-left:8px; font-family:var(--f-mono); font-size:11.5px; color:var(--mute);
+}
+.term__body{ padding:18px 18px 22px; font-family:var(--f-mono); font-size:13px; }
+.term__line{ color:var(--ink); margin-bottom:6px; }
+.term__prompt{ color:var(--accent); margin-right:8px; }
+.term__out{ color:var(--ink-2); margin:0 0 16px 18px; line-height:1.65; }
+.term__list{ margin:0 0 16px 18px; display:grid; gap:6px; color:var(--ink-2); }
+.term__list b{
+  display:inline-block; min-width:52px; color:var(--accent); font-weight:700;
+}
+.cursor{
+  display:inline-block; width:8px; height:15px; background:var(--accent);
+  vertical-align:-2px; animation:blink 1.05s steps(2,start) infinite;
+}
+@keyframes blink{ 50%{ opacity:0; } }
+
+/* ==========================================================================
+   STATS
+   ========================================================================== */
+.stats{ border-bottom:1px solid var(--line); background:var(--bg-2); }
+.stats__row{
+  display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:20px; padding-block:30px;
+}
+.stat{ text-align:center; position:relative; }
+.stat + .stat::before{
+  content:''; position:absolute; left:-10px; top:14%; bottom:14%; width:1px; background:var(--line);
+}
+.stat b{
+  display:block; font-family:var(--f-display); font-weight:800;
+  font-size:clamp(28px,3.4vw,38px); color:var(--accent); line-height:1;
+}
+.stat span{ font-size:12.5px; color:var(--mute); }
+
+/* ==========================================================================
+   ABOUT
+   ========================================================================== */
+.about__grid{ display:grid; grid-template-columns:1.15fr 1fr; gap:clamp(22px,3vw,44px); }
+.about__lead{ font-size:17.5px; color:var(--ink); }
+.about__body{ color:var(--ink-2); }
+.about__body strong{ color:var(--accent); font-weight:600; }
+.about__points{
+  grid-column:1 / -1; display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px 24px; margin-top:26px; padding-top:26px; border-top:1px solid var(--line);
+}
+.about__points li{ display:flex; gap:11px; align-items:flex-start; color:var(--ink-2); font-size:15px; }
+.about__points .ico{ color:var(--accent); margin-top:5px; }
+
+/* ==========================================================================
+   SKILLS
+   ========================================================================== */
+.skills__grid{
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px;
+}
+.skill{
+  padding:20px; border:1px solid var(--line); border-radius:var(--r);
+  background:linear-gradient(180deg,var(--panel),#0D141B);
+  transition:border-color .3s, transform .3s var(--ease), box-shadow .3s;
+}
+.skill:hover{
+  border-color:rgba(34,211,238,.34); transform:translateY(-3px);
+  box-shadow:0 24px 44px -30px #000;
+}
+.skill__head{ display:flex; align-items:center; gap:11px; margin-bottom:14px; }
+.skill__head .ico--lg{ color:var(--accent); }
+.skill__head h3{ font-family:var(--f-display); font-size:16.5px; font-weight:600; }
+
+.chips{ display:flex; flex-wrap:wrap; gap:7px; }
+.chips li{
+  font-family:var(--f-mono); font-size:12px; color:var(--ink-2);
+  padding:5px 10px; border:1px solid var(--line-2); border-radius:99px;
+  background:rgba(255,255,255,.02); transition:border-color .25s, color .25s;
+}
+.skill:hover .chips li{ border-color:rgba(34,211,238,.22); }
+.chips--muted li{ font-family:var(--f-body); font-size:12.5px; }
+
+/* ==========================================================================
+   PROJECTS
+   ========================================================================== */
+.proj__grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.proj{
+  position:relative; padding:24px; border:1px solid var(--line); border-radius:var(--r);
+  background:linear-gradient(180deg,var(--panel),#0C131A); overflow:hidden;
+  transition:border-color .3s, transform .3s var(--ease);
+}
+.proj::before{
+  content:''; position:absolute; top:0; left:0; width:0; height:2px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  transition:width .5s var(--ease);
+}
+.proj:hover{ border-color:rgba(34,211,238,.3); transform:translateY(-3px); }
+.proj:hover::before{ width:100%; }
+.proj header{ display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+.proj header .ico--lg{ color:var(--accent); }
+.proj h3{ font-family:var(--f-display); font-size:18px; font-weight:600; letter-spacing:-.01em; }
+.proj ul{ display:grid; gap:9px; }
+.proj li{
+  position:relative; padding-left:20px; color:var(--ink-2); font-size:14.5px; line-height:1.6;
+}
+.proj li::before{
+  content:'▹'; position:absolute; left:0; top:0; color:var(--accent);
+  font-family:var(--f-mono);
+}
+
+/* ==========================================================================
+   TIMELINE
+   ========================================================================== */
+.tl{ position:relative; padding-left:34px; }
+.tl::before{
+  content:''; position:absolute; left:9px; top:6px; bottom:6px; width:2px;
+  background:linear-gradient(180deg, var(--accent), rgba(34,211,238,.12));
+}
+.tl__item{ position:relative; margin-bottom:18px; }
+.tl__item:last-child{ margin-bottom:0; }
+.tl__marker{
+  position:absolute; left:-34px; top:22px; width:20px; height:20px; border-radius:50%;
+  background:var(--bg-2); border:2px solid var(--accent);
+  box-shadow:0 0 0 4px rgba(34,211,238,.10);
+}
+.tl__marker::after{
+  content:''; position:absolute; inset:4px; border-radius:50%; background:var(--accent);
+}
+.tl__card{
+  padding:20px 22px; border:1px solid var(--line); border-radius:var(--r);
+  background:linear-gradient(180deg,var(--panel),#0C131A);
+  transition:border-color .3s, transform .3s var(--ease);
+}
+.tl__card:hover{ border-color:rgba(34,211,238,.28); transform:translateX(3px); }
+.tl__when{
+  font-family:var(--f-mono); font-size:12px; letter-spacing:.06em;
+  color:var(--accent); margin-bottom:6px;
+}
+.tl__card h3{ font-family:var(--f-display); font-size:18px; font-weight:600; }
+.tl__org{ color:var(--mute); font-size:14px; margin-bottom:14px; }
+.tl__card ul{ display:grid; gap:8px; }
+.tl__card li{
+  position:relative; padding-left:18px; color:var(--ink-2); font-size:14.5px; line-height:1.6;
+}
+.tl__card li::before{
+  content:''; position:absolute; left:2px; top:.68em; width:5px; height:5px;
+  border-radius:50%; background:var(--accent); opacity:.7;
+}
+
+/* ==========================================================================
+   EDUCATION
+   ========================================================================== */
+.edu{
+  display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(20px,3vw,40px); align-items:start;
+  padding:26px; border:1px solid var(--line); border-radius:var(--r);
+  background:linear-gradient(180deg,var(--panel),#0C131A); margin-bottom:22px;
+}
+.edu__school{ display:flex; gap:14px; align-items:flex-start; }
+.edu__school .ico--lg{ color:var(--accent); margin-top:4px; }
+.edu__school h3{ font-family:var(--f-display); font-size:21px; font-weight:700; }
+.edu__school p{ color:var(--mute); font-size:14px; }
+.edu__certs{ display:grid; gap:10px; }
+.edu__certs li{
+  display:flex; align-items:center; gap:12px; font-size:15px; color:var(--ink);
+  padding:11px 14px; border:1px solid var(--line); border-radius:var(--r-sm);
+  background:rgba(255,255,255,.02); transition:border-color .25s, transform .25s var(--ease);
+}
+.edu__certs li:hover{ border-color:rgba(34,211,238,.3); transform:translateX(3px); }
+.edu__tag{
+  font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--accent); border:1px solid rgba(34,211,238,.3); border-radius:99px;
+  padding:2px 8px; flex:0 0 auto;
+}
+
+.soft{ display:grid; grid-template-columns:1.6fr 1fr; gap:22px; }
+.soft__col{
+  padding:24px; border:1px solid var(--line); border-radius:var(--r);
+  background:linear-gradient(180deg,var(--panel),#0C131A);
+}
+.soft__col h3{
+  font-family:var(--f-display); font-size:16px; font-weight:600; margin-bottom:16px;
+}
+.lang{ display:grid; gap:18px; }
+.lang li{ display:grid; grid-template-columns:auto 1fr; gap:4px 12px; align-items:center; }
+.lang b{ font-size:15px; }
+.lang span{ font-family:var(--f-mono); font-size:12px; color:var(--accent); text-align:right; }
+.lang__bar{
+  grid-column:1 / -1; height:5px; border-radius:99px;
+  background:rgba(255,255,255,.07); overflow:hidden;
+}
+.lang__bar em{
+  display:block; height:100%; width:var(--pct); border-radius:99px;
+  background:linear-gradient(90deg,var(--accent-dk),var(--accent));
+  transform-origin:left;
+}
+
+/* ==========================================================================
+   CONTACT
+   ========================================================================== */
+.contact{
+  position:relative; overflow:hidden; text-align:center;
+  padding:clamp(64px,8vw,110px) 0;
+  background:linear-gradient(180deg,var(--bg),#080C11);
+  border-top:1px solid var(--line);
+}
+.contact__glow{
+  position:absolute; left:50%; bottom:-300px; width:800px; height:520px;
+  transform:translateX(-50%);
+  background:radial-gradient(circle, rgba(34,211,238,.20), transparent 62%);
+  filter:blur(10px);
+}
+.contact__inner{ position:relative; }
+.contact .section__num{ display:inline-block; margin-bottom:18px; }
+.contact h2{
+  font-family:var(--f-display); font-weight:800; letter-spacing:-.03em;
+  font-size:clamp(30px,5vw,54px); margin-bottom:14px;
+}
+.contact p{ color:var(--ink-2); max-width:56ch; margin:0 auto 30px; }
+.contact__actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.contact__meta{
+  display:flex; gap:12px 28px; justify-content:center; flex-wrap:wrap; margin-top:32px;
+  font-family:var(--f-mono); font-size:12.5px; color:var(--mute);
+}
+.contact__meta li{ display:inline-flex; align-items:center; gap:8px; }
+.contact__meta .ico{ color:var(--accent); }
+.contact__meta a:hover{ color:var(--accent); }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.foot{ background:#080C11; border-top:1px solid var(--line); }
+.foot__inner{
+  display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+  padding-block:22px; font-size:13px; color:var(--mute);
+}
+.foot__mono{ font-family:var(--f-mono); font-size:12px; }
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width:1000px){
+  .hero__inner{ grid-template-columns:1fr; }
+  .term{ order:2; }
+  .skills__grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .about__grid{ grid-template-columns:1fr; }
+  .soft{ grid-template-columns:1fr; }
+  .edu{ grid-template-columns:1fr; }
+}
+
+@media (max-width:860px){
+  .nav__links{
+    position:fixed; inset:var(--nav-h) 0 auto 0; flex-direction:column; align-items:stretch;
+    gap:0; padding:8px 24px 24px; margin:0;
+    background:rgba(9,12,17,.985); border-bottom:1px solid var(--line);
+    max-height:calc(100vh - var(--nav-h)); overflow:auto;
+    transform:translateY(-12px); opacity:0; pointer-events:none;
+    transition:opacity .28s var(--ease), transform .28s var(--ease);
+  }
+  .nav__links.is-open{ opacity:1; transform:none; pointer-events:auto; }
+  .nav__links > a{ padding:14px 0; border-bottom:1px solid var(--line); font-size:16px; }
+  .nav__links > a::after{ display:none; }
+  .burger{ display:flex; }
+  .nav__print{ margin-left:auto; }
+  .proj__grid{ grid-template-columns:1fr; }
+  .stats__row{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+  .stat:nth-child(3)::before{ display:none; }
+}
+
+@media (max-width:620px){
+  .shell{ padding:0 18px; }
+  .brand__name{ display:none; }
+  .nav__print span{ display:none; }
+  .skills__grid{ grid-template-columns:1fr; }
+  .about__points{ grid-template-columns:1fr; }
+  .hero__actions .btn{ flex:1; }
+  .stat + .stat::before{ left:-8px; }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation:none !important; transition-duration:.01ms !important; }
+  .js [data-reveal], .js .hero__name .w{ opacity:1 !important; transform:none !important; }
+}
+
+/* ==========================================================================
+   PRINT — collapses the site into a clean one-column resume
+   ========================================================================== */
+@media print{
+  @page{ margin:14mm; }
+  :root{ --ink:#000; --ink-2:#1a1a1a; --mute:#555; --accent:#0b6b7d; }
+  html,body{ background:#fff !important; color:#000 !important; font-size:10.5pt; line-height:1.45; }
+  .js [data-reveal], .js .hero__name .w{ opacity:1 !important; transform:none !important; }
+
+  .nav,.burger,.nav__progress,.hero__grid,.hero__glow,.contact__glow,
+  .hero__actions,.contact__actions,.term__bar,.cursor,.stats,.foot{ display:none !important; }
+
+  .hero{ padding:0 0 8pt; background:#fff !important; }
+  .hero__inner{ display:block; }
+  .hero__name{ font-size:26pt; margin-bottom:2pt; letter-spacing:-.02em; }
+  .hero__role{ color:#0b6b7d; font-size:10pt; margin-bottom:6pt; }
+  .hero__lede{ max-width:none; }
+  .hero__links{ border:0; padding-top:6pt; gap:4pt 16pt; }
+  .hero__links a{ color:#000; font-size:9pt; }
+  .term{ border:1px solid #ccc; box-shadow:none; background:#fff !important; margin-top:8pt; }
+  .term__body{ padding:8pt; font-size:8.5pt; }
+  .term__list b{ color:#0b6b7d; }
+
+  .section{ padding:10pt 0 0; border:0; background:#fff !important; break-inside:avoid; }
+  .section--alt{ background:#fff !important; }
+  .section__head{ margin-bottom:8pt; border-bottom:1px solid #999; padding-bottom:3pt; }
+  .h2{ font-size:13pt; }
+  .section__num{ border-color:#999; color:#0b6b7d; }
+
+  .skills__grid,.proj__grid{ grid-template-columns:1fr 1fr; gap:8pt; }
+  .skill,.proj,.tl__card,.edu,.soft__col{
+    background:#fff !important; border:1px solid #ccc; padding:8pt;
+    break-inside:avoid; box-shadow:none;
+  }
+  .chips li{ border-color:#bbb; background:#fff; font-size:8pt; padding:2pt 6pt; }
+  .tl{ padding-left:0; }
+  .tl::before,.tl__marker{ display:none; }
+  .tl__item{ margin-bottom:8pt; break-inside:avoid; }
+  .proj li,.tl__card li,.about__points li{ font-size:9.5pt; }
+  .contact{ padding:10pt 0 0; background:#fff !important; text-align:left; }
+  .contact h2{ font-size:13pt; }
+  .contact__meta{ justify-content:flex-start; color:#000; }
+  a[href^="mailto"],a[href^="tel"]{ color:#000 !important; }
+}
+
+</style>
+<script>
+  /* Pre-hide animated elements before first paint. main.js flags itself alive;
+     if it never loads, the failsafe below reveals everything anyway. */
+  (function () {
+    var root = document.documentElement;
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) root.className = 'js';
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        if (!root.classList.contains('js-ready')) root.classList.remove('js');
+      }, 400);
+    });
+  })();
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230B0F14'/><text x='16' y='23' font-family='Consolas,monospace' font-size='16' font-weight='700' text-anchor='middle' fill='%2322D3EE'>nc</text></svg>">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="shell nav__inner">
+    <a class="brand" href="#top">
+      <span class="brand__mark">NC</span>
+      <span class="brand__name">Nicole Cohen<em>IT &amp; Network Support</em></span>
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="btn btn--accent nav__print" id="printBtn" type="button">
+      <svg class="ico" aria-hidden="true"><use href="#i-print"/></svg> Save as PDF
+    </button>
+
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__progress" id="progress" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero__grid" aria-hidden="true"></div>
+    <div class="hero__glow" aria-hidden="true"></div>
+
+    <div class="shell hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow" data-reveal><span class="dot"></span> Saint Cloud, Florida · Open to work</p>
+
+        <h1 class="hero__name">
+          <span class="line"><span class="w">Nicole</span></span>
+          <span class="line"><span class="w accent">Cohen</span></span>
+        </h1>
+
+        <p class="hero__role" data-reveal>
+          IT Support · Network Administration · Cybersecurity
+        </p>
+
+        <p class="hero__lede" data-reveal>
+          Motivated and detail-oriented IT professional pursuing multiple technical
+          certifications through Valencia College, with hands-on experience in network
+          administration, Windows Server, Active Directory, cloud technologies,
+          virtualization and cybersecurity.
+        </p>
+
+        <div class="hero__actions" data-reveal>
+          <a class="btn btn--accent btn--lg" href="mailto:nikic0hen30@outlook.com">
+            <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg> Get in touch
+          </a>
+          <a class="btn btn--ghost btn--lg" href="#projects">View projects</a>
+        </div>
+
+        <ul class="hero__links" data-reveal>
+          <li><a href="tel:+17253733992"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> (725) 373-3992</a></li>
+          <li><a href="mailto:nikic0hen30@outlook.com"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg> nikic0hen30@outlook.com</a></li>
+          <li><a href="https://github.com/nnnnnnicoleeeeee" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg> nnnnnnicoleeeeee</a></li>
+          <!-- TODO: replace with the real LinkedIn profile URL -->
+          <li><a href="https://www.linkedin.com/search/results/all/?keywords=Nicole%20Cohen" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg> Nicole Cohen</a></li>
+        </ul>
+      </div>
+
+      <!-- terminal card -->
+      <aside class="term" data-reveal aria-label="Summary">
+        <div class="term__bar">
+          <span class="term__dot"></span><span class="term__dot"></span><span class="term__dot"></span>
+          <span class="term__title">nicole@valencia: ~</span>
+        </div>
+        <div class="term__body">
+          <p class="term__line"><span class="term__prompt">$</span> <span data-type="whoami"></span></p>
+          <p class="term__out" data-out>
+            Entry-level IT professional — Help Desk, Systems Administration,
+            Network Support and Cybersecurity.
+          </p>
+          <p class="term__line"><span class="term__prompt">$</span> <span data-type="cat skills.txt"></span></p>
+          <ul class="term__list" data-out>
+            <li><b>OS</b> Windows 10/11 · Server 2022 · Kali · RHEL</li>
+            <li><b>NET</b> TCP/IP · VLANs · DHCP · DNS · Routing</li>
+            <li><b>DIR</b> Active Directory · GPO · OUs · NTFS</li>
+            <li><b>CLOUD</b> Microsoft Azure · VMware</li>
+            <li><b>SEC</b> Wireshark · Nmap · CTF labs</li>
+          </ul>
+          <p class="term__line"><span class="term__prompt">$</span> <span class="cursor" aria-hidden="true"></span></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats">
+    <div class="shell stats__row">
+      <div class="stat" data-reveal><b data-count="4">0</b><span>Technical certificates in progress</span></div>
+      <div class="stat" data-reveal><b data-count="4">0</b><span>Hands-on lab projects</span></div>
+      <div class="stat" data-reveal><b data-count="2">0</b><span>Languages spoken fluently</span></div>
+      <div class="stat" data-reveal><b data-count="5">0</b><span>Years of customer-facing work</span></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="shell about__inner">
+      <div class="section__head" data-reveal>
+        <span class="section__num">01</span>
+        <h2 class="h2">Professional Summary</h2>
+      </div>
+
+      <div class="about__grid">
+        <p class="about__lead" data-reveal>
+          Experienced in technical troubleshooting, customer support, leadership and
+          bilingual communication in both remote and fast-paced environments. Proven
+          ability to analyze problems, deliver exceptional customer service and
+          collaborate effectively with cross-functional teams.
+        </p>
+        <p class="about__body" data-reveal>
+          Seeking an entry-level <strong>IT Support, Help Desk, Systems Administration,
+          Network Support or Cybersecurity</strong> position where I can continue
+          developing my technical expertise while contributing to organizational success.
+        </p>
+
+        <ul class="about__points">
+          <li data-reveal><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Windows Server 2022 &amp; Active Directory administration</li>
+          <li data-reveal><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Network configuration, troubleshooting and documentation</li>
+          <li data-reveal><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Packet analysis and vulnerability assessment fundamentals</li>
+          <li data-reveal><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Bilingual support in English and Spanish</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section section--alt" id="skills">
+    <div class="shell">
+      <div class="section__head" data-reveal>
+        <span class="section__num">02</span>
+        <h2 class="h2">Technical Skills</h2>
+      </div>
+
+      <div class="skills__grid">
+        <article class="skill" data-reveal>
+          <div class="skill__head"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-window"/></svg><h3>Operating Systems</h3></div>
+          <ul class="chips">
+            <li>Windows 10/11</li><li>Windows Server 2022</li><li>Kali Linux</li>
+            <li>Red Hat Enterprise Linux</li>
+          </ul>
+        </article>
+
+        <article class="skill" data-reveal>
+          <div class="skill__head"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-net"/></svg><h3>Networking</h3></div>
+          <ul class="chips">
+            <li>TCP/IP</li><li>IPv4 &amp; IPv6</li><li>VLAN Configuration</li><li>DHCP</li>
+            <li>DNS</li><li>Routing &amp; Switching</li><li>Network Troubleshooting</li>
+            <li>Cisco Packet Tracer</li>
+          </ul>
+        </article>
+
+        <article class="skill" data-reveal>
+          <div class="skill__head"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-server"/></svg><h3>System Administration</h3></div>
+          <ul class="chips">
+            <li>Active Directory</li><li>Organizational Units</li><li>Group Policy (GPO)</li>
+            <li>User &amp; Group Management</li><li>Shared Folder Permissions</li>
+          </ul>
+        </article>
+
+        <article class="skill" data-reveal>
+          <div class="skill__head"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-cloud"/></svg><h3>Cloud &amp; Virtualization</h3></div>
+          <ul class="chips">
+            <li>Microsoft Azure</li><li>VMware</li>
+          </ul>
+        </article>
+
+        <article class="skill" data-reveal>
+          <div class="skill__head"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-shield"/></svg><h3>Cybersecurity</h3></div>
+          <ul class="chips">
+            <li>Wireshark</li><li>Nmap</li><li>Packet Analysis</li>
+            <li>Vulnerability Assessment</li><li>Cybersecurity Fundamentals</li>
+            <li>Capture-the-Flag (CTF) Labs</li>
+          </ul>
+        </article>
+
+        <article class="skill" data-reveal>
+          <div class="skill__head"><svg class="ico ico--lg" aria-hidden="true"><use href="#i-tool"/></svg><h3>Technical Tools</h3></div>
+          <ul class="chips">
+            <li>PowerShell</li><li>Microsoft Office Suite</li><li>Hardware Installation &amp; Repair</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="section" id="projects">
+    <div class="shell">
+      <div class="section__head" data-reveal>
+        <span class="section__num">03</span>
+        <h2 class="h2">Technical Projects</h2>
+      </div>
+
+      <div class="proj__grid">
+        <article class="proj" data-reveal>
+          <header>
+            <svg class="ico ico--lg" aria-hidden="true"><use href="#i-server"/></svg>
+            <h3>Windows Server Domain Environment</h3>
+          </header>
+          <ul>
+            <li>Installed and configured Windows Server 2022</li>
+            <li>Deployed Active Directory Domain Services (AD DS)</li>
+            <li>Created and managed users, groups, Organizational Units and security permissions</li>
+            <li>Configured Group Policy Objects (GPOs) for centralized administration</li>
+            <li>Joined Windows client computers to a domain environment</li>
+            <li>Configured shared folders and NTFS permissions</li>
+            <li>Performed account management and policy administration</li>
+          </ul>
+        </article>
+
+        <article class="proj" data-reveal>
+          <header>
+            <svg class="ico ico--lg" aria-hidden="true"><use href="#i-net"/></svg>
+            <h3>Network Administration Labs</h3>
+          </header>
+          <ul>
+            <li>Configured IPv4 and IPv6 addressing</li>
+            <li>Implemented VLANs and basic routing concepts</li>
+            <li>Configured DHCP and DNS services</li>
+            <li>Performed network troubleshooting using Cisco Packet Tracer</li>
+            <li>Tested network connectivity and documented configurations</li>
+          </ul>
+        </article>
+
+        <article class="proj" data-reveal>
+          <header>
+            <svg class="ico ico--lg" aria-hidden="true"><use href="#i-shield"/></svg>
+            <h3>Cybersecurity Operations Labs</h3>
+          </header>
+          <ul>
+            <li>Captured and analyzed network traffic using Wireshark</li>
+            <li>Performed network reconnaissance using Nmap</li>
+            <li>Practiced vulnerability assessment methodologies</li>
+            <li>Completed Capture-the-Flag exercises focused on real-world cybersecurity concepts</li>
+          </ul>
+        </article>
+
+        <article class="proj" data-reveal>
+          <header>
+            <svg class="ico ico--lg" aria-hidden="true"><use href="#i-tool"/></svg>
+            <h3>PC Hardware &amp; Operating Systems</h3>
+          </header>
+          <ul>
+            <li>Installed Windows operating systems</li>
+            <li>Built and upgraded desktop computers</li>
+            <li>Diagnosed hardware and software issues</li>
+            <li>Performed preventative maintenance and system upgrades</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="section section--alt" id="experience">
+    <div class="shell">
+      <div class="section__head" data-reveal>
+        <span class="section__num">04</span>
+        <h2 class="h2">Professional Experience</h2>
+      </div>
+
+      <ol class="tl">
+        <li class="tl__item" data-reveal>
+          <div class="tl__marker" aria-hidden="true"></div>
+          <div class="tl__card">
+            <p class="tl__when">July 2026 – Present</p>
+            <h3>Remote Bilingual Contact Center Agent</h3>
+            <p class="tl__org">Epiq</p>
+            <ul>
+              <li>Provide bilingual (English/Spanish) customer support for Epiq's Cyber Notification Services</li>
+              <li>Handle high-volume inbound and outbound calls regarding data breach notifications and claimant inquiries</li>
+              <li>Process customer communications through phone, email, live chat and scheduled callbacks</li>
+              <li>Document interactions accurately while maintaining confidentiality and compliance with company policies</li>
+              <li>Resolve customer concerns efficiently while meeting quality assurance and performance metrics</li>
+              <li>Apply strong problem-solving, communication and multitasking skills in a fully remote environment</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="tl__item" data-reveal>
+          <div class="tl__marker" aria-hidden="true"></div>
+          <div class="tl__card">
+            <p class="tl__when">2024 – Present</p>
+            <h3>Trainer · Team Leader Development Program</h3>
+            <p class="tl__org">Chick-fil-A</p>
+            <ul>
+              <li>Train and mentor newly hired team members</li>
+              <li>Evaluate employee performance and provide coaching</li>
+              <li>Assist leadership in maintaining operational standards</li>
+              <li>Promote teamwork, communication and customer satisfaction</li>
+              <li>Ensure compliance with food safety and inventory procedures</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="tl__item" data-reveal>
+          <div class="tl__marker" aria-hidden="true"></div>
+          <div class="tl__card">
+            <p class="tl__when">2023 – 2025</p>
+            <h3>Independent Delivery Driver</h3>
+            <p class="tl__org">DoorDash</p>
+            <ul>
+              <li>Managed delivery routes efficiently while consistently meeting deadlines</li>
+              <li>Maintained excellent customer satisfaction through professional communication</li>
+              <li>Used GPS navigation and mobile technologies daily</li>
+              <li>Demonstrated strong time management and independent decision-making</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="tl__item" data-reveal>
+          <div class="tl__marker" aria-hidden="true"></div>
+          <div class="tl__card">
+            <p class="tl__when">2024</p>
+            <h3>Team Member</h3>
+            <p class="tl__org">SeaWorld Orlando</p>
+            <ul>
+              <li>Delivered outstanding guest service in a high-volume environment</li>
+              <li>Worked collaboratively to support daily park operations</li>
+              <li>Assisted guests while maintaining company standards</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="tl__item" data-reveal>
+          <div class="tl__marker" aria-hidden="true"></div>
+          <div class="tl__card">
+            <p class="tl__when">2017 – 2024</p>
+            <h3>Independent Dog Walker</h3>
+            <p class="tl__org">Self-employed</p>
+            <ul>
+              <li>Managed scheduling and client relationships independently</li>
+              <li>Maintained reliability, professionalism and customer trust</li>
+              <li>Ensured the safety and well-being of clients' pets</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="section" id="education">
+    <div class="shell">
+      <div class="section__head" data-reveal>
+        <span class="section__num">05</span>
+        <h2 class="h2">Education &amp; Certifications</h2>
+      </div>
+
+      <div class="edu" data-reveal>
+        <div class="edu__school">
+          <svg class="ico ico--lg" aria-hidden="true"><use href="#i-cap"/></svg>
+          <div>
+            <h3>Valencia College</h3>
+            <p>Technical Certificate Programs</p>
+          </div>
+        </div>
+        <ul class="edu__certs">
+          <li data-reveal><span class="edu__tag">Certificate</span> Network Administration</li>
+          <li data-reveal><span class="edu__tag">Certificate</span> Network Support</li>
+          <li data-reveal><span class="edu__tag">Certificate</span> Network Infrastructure</li>
+          <li data-reveal><span class="edu__tag">Certificate</span> Cloud Computing Architecture</li>
+        </ul>
+      </div>
+
+      <div class="soft">
+        <div class="soft__col" data-reveal>
+          <h3>Professional Skills</h3>
+          <ul class="chips chips--muted">
+            <li>Leadership &amp; Mentoring</li><li>Team Training &amp; Development</li>
+            <li>Customer Service Excellence</li><li>Bilingual Communication</li>
+            <li>Technical Troubleshooting</li><li>Problem Solving</li>
+            <li>Critical Thinking</li><li>Active Listening</li><li>Conflict Resolution</li>
+            <li>Professional Communication</li><li>Time Management</li>
+            <li>Organizational Skills</li><li>Documentation &amp; Record Keeping</li>
+            <li>CRM</li><li>Attention to Detail</li><li>Adaptability</li>
+            <li>Team Collaboration</li><li>Remote Work Collaboration</li>
+            <li>Confidentiality &amp; Data Privacy</li><li>Dependability</li>
+          </ul>
+        </div>
+
+        <div class="soft__col" data-reveal>
+          <h3>Languages</h3>
+          <ul class="lang">
+            <li><b>English</b><span>Fluent</span><i class="lang__bar"><em style="--pct:100%"></em></i></li>
+            <li><b>Spanish</b><span>Fluent</span><i class="lang__bar"><em style="--pct:100%"></em></i></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="contact__glow" aria-hidden="true"></div>
+    <div class="shell contact__inner" data-reveal>
+      <span class="section__num">06</span>
+      <h2>Let's work together</h2>
+      <p>
+        Available for entry-level IT Support, Help Desk, Systems Administration,
+        Network Support and Cybersecurity roles — remote or in the Central Florida area.
+      </p>
+
+      <div class="contact__actions">
+        <a class="btn btn--accent btn--lg" href="mailto:nikic0hen30@outlook.com">
+          <svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg> nikic0hen30@outlook.com
+        </a>
+        <a class="btn btn--ghost btn--lg" href="tel:+17253733992">
+          <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> (725) 373-3992
+        </a>
+      </div>
+
+      <ul class="contact__meta">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Saint Cloud, Florida</li>
+        <li><a href="https://github.com/nnnnnnicoleeeeee" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg> github.com/nnnnnnicoleeeeee</a></li>
+        <li><a href="https://www.linkedin.com/search/results/all/?keywords=Nicole%20Cohen" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg> LinkedIn</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="shell foot__inner">
+    <span>© <span id="year">2026</span> Nicole Cohen</span>
+    <span class="foot__mono">Saint Cloud, FL · English &amp; Spanish</span>
+  </div>
+</footer>
+
+<!-- ============ ICONS ============ -->
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 7l8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 006 6L16 13l5 2v3a2 2 0 01-2.2 2A16 16 0 014 5.2A2 2 0 016 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11a7 7 0 10-14 0c0 5 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z" fill="currentColor"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 102.5 6 2.48 2.48 0 004.98 3.5zM3 8.98h4V21H3zM9.5 8.98h3.83v1.64h.05a4.2 4.2 0 013.78-2.08c4.04 0 4.79 2.66 4.79 6.12V21h-4v-5.5c0-1.31-.02-3-1.83-3s-2.11 1.43-2.11 2.9V21h-4z" fill="currentColor"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 8V3h10v5M7 19H5a2 2 0 01-2-2v-4a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2h-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><rect x="7" y="15" width="10" height="6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-window" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-net" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="5" cy="19" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="19" cy="19" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7.5v4m0 0H5.5a.5.5 0 00-.5.5v4.5m7-5h6.5a.5.5 0 01.5.5v4.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="18" height="6" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 7h.01M7 17h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18a4 4 0 01-.4-7.98A5.5 5.5 0 0117.9 9.5 3.75 3.75 0 0117.5 18z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 12l2.2 2.2L15.5 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 015.1 5.1l-8 8a2.8 2.8 0 01-4-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 6l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M12 4l9 4.5-9 4.5-9-4.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 10.5V16c0 1.4 2.7 2.6 6 2.6s6-1.2 6-2.6v-5.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+</svg>
+
+<script>
+/*
+ * anime.js v3.2.2
+ * (c) 2023 Julian Garnier
+ * Released under the MIT license
+ * animejs.com
+ */
+
+!function(n,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):n.anime=e()}(this,function(){"use strict";var i={update:null,begin:null,loopBegin:null,changeBegin:null,change:null,changeComplete:null,loopComplete:null,complete:null,loop:1,direction:"normal",autoplay:!0,timelineOffset:0},M={duration:1e3,delay:0,endDelay:0,easing:"easeOutElastic(1, .5)",round:0},j=["translateX","translateY","translateZ","rotate","rotateX","rotateY","rotateZ","scale","scaleX","scaleY","scaleZ","skew","skewX","skewY","perspective","matrix","matrix3d"],l={CSS:{},springs:{}};function C(n,e,t){return Math.min(Math.max(n,e),t)}function u(n,e){return-1<n.indexOf(e)}function o(n,e){return n.apply(null,e)}var w={arr:function(n){return Array.isArray(n)},obj:function(n){return u(Object.prototype.toString.call(n),"Object")},pth:function(n){return w.obj(n)&&n.hasOwnProperty("totalLength")},svg:function(n){return n instanceof SVGElement},inp:function(n){return n instanceof HTMLInputElement},dom:function(n){return n.nodeType||w.svg(n)},str:function(n){return"string"==typeof n},fnc:function(n){return"function"==typeof n},und:function(n){return void 0===n},nil:function(n){return w.und(n)||null===n},hex:function(n){return/(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(n)},rgb:function(n){return/^rgb/.test(n)},hsl:function(n){return/^hsl/.test(n)},col:function(n){return w.hex(n)||w.rgb(n)||w.hsl(n)},key:function(n){return!i.hasOwnProperty(n)&&!M.hasOwnProperty(n)&&"targets"!==n&&"keyframes"!==n}};function d(n){n=/\(([^)]+)\)/.exec(n);return n?n[1].split(",").map(function(n){return parseFloat(n)}):[]}function c(r,t){var n=d(r),e=C(w.und(n[0])?1:n[0],.1,100),a=C(w.und(n[1])?100:n[1],.1,100),o=C(w.und(n[2])?10:n[2],.1,100),n=C(w.und(n[3])?0:n[3],.1,100),u=Math.sqrt(a/e),i=o/(2*Math.sqrt(a*e)),c=i<1?u*Math.sqrt(1-i*i):0,s=i<1?(i*u-n)/c:-n+u;function f(n){var e=t?t*n/1e3:n,e=i<1?Math.exp(-e*i*u)*(+Math.cos(c*e)+s*Math.sin(c*e)):(1+s*e)*Math.exp(-e*u);return 0===n||1===n?n:1-e}return t?f:function(){var n=l.springs[r];if(n)return n;for(var e=0,t=0;;)if(1===f(e+=1/6)){if(16<=++t)break}else t=0;return n=e*(1/6)*1e3,l.springs[r]=n}}function q(e){return void 0===e&&(e=10),function(n){return Math.ceil(C(n,1e-6,1)*e)*(1/e)}}var H=function(b,e,M,t){if(0<=b&&b<=1&&0<=M&&M<=1){var x=new Float32Array(11);if(b!==e||M!==t)for(var n=0;n<11;++n)x[n]=k(.1*n,b,M);return function(n){return b===e&&M===t||0===n||1===n?n:k(r(n),e,t)}}function r(n){for(var e=0,t=1;10!==t&&x[t]<=n;++t)e+=.1;var r=e+.1*((n-x[--t])/(x[t+1]-x[t])),a=O(r,b,M);if(.001<=a){for(var o=n,u=r,i=b,c=M,s=0;s<4;++s){var f=O(u,i,c);if(0===f)return u;u-=(k(u,i,c)-o)/f}return u}if(0===a)return r;for(var l,d,p=n,h=e,g=e+.1,m=b,v=M,y=0;0<(l=k(d=h+(g-h)/2,m,v)-p)?g=d:h=d,1e-7<Math.abs(l)&&++y<10;);return d}};function r(n,e){return 1-3*e+3*n}function k(n,e,t){return((r(e,t)*n+(3*t-6*e))*n+3*e)*n}function O(n,e,t){return 3*r(e,t)*n*n+2*(3*t-6*e)*n+3*e}e={linear:function(){return function(n){return n}}},t={Sine:function(){return function(n){return 1-Math.cos(n*Math.PI/2)}},Expo:function(){return function(n){return n?Math.pow(2,10*n-10):0}},Circ:function(){return function(n){return 1-Math.sqrt(1-n*n)}},Back:function(){return function(n){return n*n*(3*n-2)}},Bounce:function(){return function(n){for(var e,t=4;n<((e=Math.pow(2,--t))-1)/11;);return 1/Math.pow(4,3-t)-7.5625*Math.pow((3*e-2)/22-n,2)}},Elastic:function(n,e){void 0===e&&(e=.5);var t=C(n=void 0===n?1:n,1,10),r=C(e,.1,2);return function(n){return 0===n||1===n?n:-t*Math.pow(2,10*(n-1))*Math.sin((n-1-r/(2*Math.PI)*Math.asin(1/t))*(2*Math.PI)/r)}}},["Quad","Cubic","Quart","Quint"].forEach(function(n,e){t[n]=function(){return function(n){return Math.pow(n,e+2)}}}),Object.keys(t).forEach(function(n){var r=t[n];e["easeIn"+n]=r,e["easeOut"+n]=function(e,t){return function(n){return 1-r(e,t)(1-n)}},e["easeInOut"+n]=function(e,t){return function(n){return n<.5?r(e,t)(2*n)/2:1-r(e,t)(-2*n+2)/2}},e["easeOutIn"+n]=function(e,t){return function(n){return n<.5?(1-r(e,t)(1-2*n))/2:(r(e,t)(2*n-1)+1)/2}}});var e,t,s=e;function P(n,e){if(w.fnc(n))return n;var t=n.split("(")[0],r=s[t],a=d(n);switch(t){case"spring":return c(n,e);case"cubicBezier":return o(H,a);case"steps":return o(q,a);default:return o(r,a)}}function a(n){try{return document.querySelectorAll(n)}catch(n){}}function I(n,e){for(var t,r=n.length,a=2<=arguments.length?e:void 0,o=[],u=0;u<r;u++)u in n&&(t=n[u],e.call(a,t,u,n))&&o.push(t);return o}function f(n){return n.reduce(function(n,e){return n.concat(w.arr(e)?f(e):e)},[])}function p(n){return w.arr(n)?n:(n=w.str(n)?a(n)||n:n)instanceof NodeList||n instanceof HTMLCollection?[].slice.call(n):[n]}function h(n,e){return n.some(function(n){return n===e})}function g(n){var e,t={};for(e in n)t[e]=n[e];return t}function x(n,e){var t,r=g(n);for(t in n)r[t]=(e.hasOwnProperty(t)?e:n)[t];return r}function D(n,e){var t,r=g(n);for(t in e)r[t]=(w.und(n[t])?e:n)[t];return r}function V(n){var e,t,r,a,o,u,i;return w.rgb(n)?(e=/rgb\((\d+,\s*[\d]+,\s*[\d]+)\)/g.exec(t=n))?"rgba("+e[1]+",1)":t:w.hex(n)?(e=(e=n).replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i,function(n,e,t,r){return e+e+t+t+r+r}),e=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(e),"rgba("+parseInt(e[1],16)+","+parseInt(e[2],16)+","+parseInt(e[3],16)+",1)"):w.hsl(n)?(t=/hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)/g.exec(t=n)||/hsla\((\d+),\s*([\d.]+)%,\s*([\d.]+)%,\s*([\d.]+)\)/g.exec(t),n=parseInt(t[1],10)/360,u=parseInt(t[2],10)/100,i=parseInt(t[3],10)/100,t=t[4]||1,0==u?r=a=o=i:(r=c(u=2*i-(i=i<.5?i*(1+u):i+u-i*u),i,n+1/3),a=c(u,i,n),o=c(u,i,n-1/3)),"rgba("+255*r+","+255*a+","+255*o+","+t+")"):void 0;function c(n,e,t){return t<0&&(t+=1),1<t&&--t,t<1/6?n+6*(e-n)*t:t<.5?e:t<2/3?n+(e-n)*(2/3-t)*6:n}}function B(n){n=/[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?(%|px|pt|em|rem|in|cm|mm|ex|ch|pc|vw|vh|vmin|vmax|deg|rad|turn)?$/.exec(n);if(n)return n[1]}function m(n,e){return w.fnc(n)?n(e.target,e.id,e.total):n}function v(n,e){return n.getAttribute(e)}function y(n,e,t){var r,a,o;return h([t,"deg","rad","turn"],B(e))?e:(r=l.CSS[e+t],w.und(r)?(a=document.createElement(n.tagName),(n=n.parentNode&&n.parentNode!==document?n.parentNode:document.body).appendChild(a),a.style.position="absolute",a.style.width=100+t,o=100/a.offsetWidth,n.removeChild(a),n=o*parseFloat(e),l.CSS[e+t]=n):r)}function $(n,e,t){var r;if(e in n.style)return r=e.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase(),e=n.style[e]||getComputedStyle(n).getPropertyValue(r)||"0",t?y(n,e,t):e}function b(n,e){return w.dom(n)&&!w.inp(n)&&(!w.nil(v(n,e))||w.svg(n)&&n[e])?"attribute":w.dom(n)&&h(j,e)?"transform":w.dom(n)&&"transform"!==e&&$(n,e)?"css":null!=n[e]?"object":void 0}function W(n){if(w.dom(n)){for(var e,t=n.style.transform||"",r=/(\w+)\(([^)]*)\)/g,a=new Map;e=r.exec(t);)a.set(e[1],e[2]);return a}}function X(n,e,t,r){var a=u(e,"scale")?1:0+(u(a=e,"translate")||"perspective"===a?"px":u(a,"rotate")||u(a,"skew")?"deg":void 0),o=W(n).get(e)||a;return t&&(t.transforms.list.set(e,o),t.transforms.last=e),r?y(n,o,r):o}function T(n,e,t,r){switch(b(n,e)){case"transform":return X(n,e,r,t);case"css":return $(n,e,t);case"attribute":return v(n,e);default:return n[e]||0}}function E(n,e){var t=/^(\*=|\+=|-=)/.exec(n);if(!t)return n;var r=B(n)||0,a=parseFloat(e),o=parseFloat(n.replace(t[0],""));switch(t[0][0]){case"+":return a+o+r;case"-":return a-o+r;case"*":return a*o+r}}function Y(n,e){var t;return w.col(n)?V(n):/\s/g.test(n)?n:(t=(t=B(n))?n.substr(0,n.length-t.length):n,e?t+e:t)}function F(n,e){return Math.sqrt(Math.pow(e.x-n.x,2)+Math.pow(e.y-n.y,2))}function Z(n){for(var e,t=n.points,r=0,a=0;a<t.numberOfItems;a++){var o=t.getItem(a);0<a&&(r+=F(e,o)),e=o}return r}function G(n){if(n.getTotalLength)return n.getTotalLength();switch(n.tagName.toLowerCase()){case"circle":return 2*Math.PI*v(n,"r");case"rect":return 2*v(t=n,"width")+2*v(t,"height");case"line":return F({x:v(t=n,"x1"),y:v(t,"y1")},{x:v(t,"x2"),y:v(t,"y2")});case"polyline":return Z(n);case"polygon":return e=n.points,Z(n)+F(e.getItem(e.numberOfItems-1),e.getItem(0))}var e,t}function Q(n,e){var e=e||{},n=e.el||function(n){for(var e=n.parentNode;w.svg(e)&&w.svg(e.parentNode);)e=e.parentNode;return e}(n),t=n.getBoundingClientRect(),r=v(n,"viewBox"),a=t.width,t=t.height,e=e.viewBox||(r?r.split(" "):[0,0,a,t]);return{el:n,viewBox:e,x:+e[0],y:+e[1],w:a,h:t,vW:e[2],vH:e[3]}}function z(n,e){var t=/[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/g,r=Y(w.pth(n)?n.totalLength:n,e)+"";return{original:r,numbers:r.match(t)?r.match(t).map(Number):[0],strings:w.str(n)||e?r.split(t):[]}}function A(n){return I(n?f(w.arr(n)?n.map(p):p(n)):[],function(n,e,t){return t.indexOf(n)===e})}function _(n){var t=A(n);return t.map(function(n,e){return{target:n,id:e,total:t.length,transforms:{list:W(n)}}})}function R(e){for(var t=I(f(e.map(function(n){return Object.keys(n)})),function(n){return w.key(n)}).reduce(function(n,e){return n.indexOf(e)<0&&n.push(e),n},[]),a={},n=0;n<t.length;n++)!function(n){var r=t[n];a[r]=e.map(function(n){var e,t={};for(e in n)w.key(e)?e==r&&(t.value=n[e]):t[e]=n[e];return t})}(n);return a}function J(n,e){var t,r=[],a=e.keyframes;for(t in e=a?D(R(a),e):e)w.key(t)&&r.push({name:t,tweens:function(n,t){var e,r=g(t),a=(/^spring/.test(r.easing)&&(r.duration=c(r.easing)),w.arr(n)&&(2===(e=n.length)&&!w.obj(n[0])?n={value:n}:w.fnc(t.duration)||(r.duration=t.duration/e)),w.arr(n)?n:[n]);return a.map(function(n,e){n=w.obj(n)&&!w.pth(n)?n:{value:n};return w.und(n.delay)&&(n.delay=e?0:t.delay),w.und(n.endDelay)&&(n.endDelay=e===a.length-1?t.endDelay:0),n}).map(function(n){return D(n,r)})}(e[t],n)});return r}function K(i,c){var s;return i.tweens.map(function(n){var n=function(n,e){var t,r={};for(t in n){var a=m(n[t],e);w.arr(a)&&1===(a=a.map(function(n){return m(n,e)})).length&&(a=a[0]),r[t]=a}return r.duration=parseFloat(r.duration),r.delay=parseFloat(r.delay),r}(n,c),e=n.value,t=w.arr(e)?e[1]:e,r=B(t),a=T(c.target,i.name,r,c),o=s?s.to.original:a,u=w.arr(e)?e[0]:o,a=B(u)||B(a),r=r||a;return w.und(t)&&(t=o),n.from=z(u,r),n.to=z(E(t,u),r),n.start=s?s.end:0,n.end=n.start+n.delay+n.duration+n.endDelay,n.easing=P(n.easing,n.duration),n.isPath=w.pth(e),n.isPathTargetInsideSVG=n.isPath&&w.svg(c.target),n.isColor=w.col(n.from.original),n.isColor&&(n.round=1),s=n})}var U={css:function(n,e,t){return n.style[e]=t},attribute:function(n,e,t){return n.setAttribute(e,t)},object:function(n,e,t){return n[e]=t},transform:function(n,e,t,r,a){var o;r.list.set(e,t),e!==r.last&&!a||(o="",r.list.forEach(function(n,e){o+=e+"("+n+") "}),n.style.transform=o)}};function nn(n,u){_(n).forEach(function(n){for(var e in u){var t=m(u[e],n),r=n.target,a=B(t),o=T(r,e,a,n),t=E(Y(t,a||B(o)),o),a=b(r,e);U[a](r,e,t,n.transforms,!0)}})}function en(n,e){return I(f(n.map(function(o){return e.map(function(n){var e,t,r=o,a=b(r.target,n.name);if(a)return t=(e=K(n,r))[e.length-1],{type:a,property:n.name,animatable:r,tweens:e,duration:t.end,delay:e[0].delay,endDelay:t.endDelay}})})),function(n){return!w.und(n)})}function tn(n,e){function t(n){return n.timelineOffset||0}var r=n.length,a={};return a.duration=r?Math.max.apply(Math,n.map(function(n){return t(n)+n.duration})):e.duration,a.delay=r?Math.min.apply(Math,n.map(function(n){return t(n)+n.delay})):e.delay,a.endDelay=r?a.duration-Math.max.apply(Math,n.map(function(n){return t(n)+n.duration-n.endDelay})):e.endDelay,a}var rn=0;var N,S=[],an=("undefined"!=typeof document&&document.addEventListener("visibilitychange",function(){L.suspendWhenDocumentHidden&&(n()?N=cancelAnimationFrame(N):(S.forEach(function(n){return n._onDocumentVisibility()}),an()))}),function(){!(N||n()&&L.suspendWhenDocumentHidden)&&0<S.length&&(N=requestAnimationFrame(on))});function on(n){for(var e=S.length,t=0;t<e;){var r=S[t];r.paused?(S.splice(t,1),e--):(r.tick(n),t++)}N=0<t?requestAnimationFrame(on):void 0}function n(){return document&&document.hidden}function L(n){var c,s=0,f=0,l=0,d=0,p=null;function h(n){var e=window.Promise&&new Promise(function(n){return p=n});return n.finished=e}e=x(i,n=n=void 0===n?{}:n),t=J(r=x(M,n),n),n=_(n.targets),r=tn(t=en(n,t),r),a=rn,rn++;var e,t,r,a,k=D(e,{id:a,children:[],animatables:n,animations:t,duration:r.duration,delay:r.delay,endDelay:r.endDelay});h(k);function g(){var n=k.direction;"alternate"!==n&&(k.direction="normal"!==n?"normal":"reverse"),k.reversed=!k.reversed,c.forEach(function(n){return n.reversed=k.reversed})}function m(n){return k.reversed?k.duration-n:n}function o(){s=0,f=m(k.currentTime)*(1/L.speed)}function v(n,e){e&&e.seek(n-e.timelineOffset)}function y(e){for(var n=0,t=k.animations,r=t.length;n<r;){for(var a=t[n],o=a.animatable,u=a.tweens,i=u.length-1,c=u[i],i=(i&&(c=I(u,function(n){return e<n.end})[0]||c),C(e-c.start-c.delay,0,c.duration)/c.duration),s=isNaN(i)?1:c.easing(i),f=c.to.strings,l=c.round,d=[],p=c.to.numbers.length,h=void 0,g=0;g<p;g++){var m=void 0,v=c.to.numbers[g],y=c.from.numbers[g]||0,m=c.isPath?function(e,t,n){function r(n){return e.el.getPointAtLength(1<=t+(n=void 0===n?0:n)?t+n:0)}var a=Q(e.el,e.svg),o=r(),u=r(-1),i=r(1),c=n?1:a.w/a.vW,s=n?1:a.h/a.vH;switch(e.property){case"x":return(o.x-a.x)*c;case"y":return(o.y-a.y)*s;case"angle":return 180*Math.atan2(i.y-u.y,i.x-u.x)/Math.PI}}(c.value,s*v,c.isPathTargetInsideSVG):y+s*(v-y);!l||c.isColor&&2<g||(m=Math.round(m*l)/l),d.push(m)}var b=f.length;if(b)for(var h=f[0],M=0;M<b;M++){f[M];var x=f[M+1],w=d[M];isNaN(w)||(h+=x?w+x:w+" ")}else h=d[0];U[a.type](o.target,a.property,h,o.transforms),a.currentValue=h,n++}}function b(n){k[n]&&!k.passThrough&&k[n](k)}function u(n){var e=k.duration,t=k.delay,r=e-k.endDelay,a=m(n);if(k.progress=C(a/e*100,0,100),k.reversePlayback=a<k.currentTime,c){var o=a;if(k.reversePlayback)for(var u=d;u--;)v(o,c[u]);else for(var i=0;i<d;i++)v(o,c[i])}!k.began&&0<k.currentTime&&(k.began=!0,b("begin")),!k.loopBegan&&0<k.currentTime&&(k.loopBegan=!0,b("loopBegin")),a<=t&&0!==k.currentTime&&y(0),(r<=a&&k.currentTime!==e||!e)&&y(e),t<a&&a<r?(k.changeBegan||(k.changeBegan=!0,k.changeCompleted=!1,b("changeBegin")),b("change"),y(a)):k.changeBegan&&(k.changeCompleted=!0,k.changeBegan=!1,b("changeComplete")),k.currentTime=C(a,0,e),k.began&&b("update"),e<=n&&(f=0,k.remaining&&!0!==k.remaining&&k.remaining--,k.remaining?(s=l,b("loopComplete"),k.loopBegan=!1,"alternate"===k.direction&&g()):(k.paused=!0,k.completed||(k.completed=!0,b("loopComplete"),b("complete"),!k.passThrough&&"Promise"in window&&(p(),h(k)))))}return k.reset=function(){var n=k.direction;k.passThrough=!1,k.currentTime=0,k.progress=0,k.paused=!0,k.began=!1,k.loopBegan=!1,k.changeBegan=!1,k.completed=!1,k.changeCompleted=!1,k.reversePlayback=!1,k.reversed="reverse"===n,k.remaining=k.loop,c=k.children;for(var e=d=c.length;e--;)k.children[e].reset();(k.reversed&&!0!==k.loop||"alternate"===n&&1===k.loop)&&k.remaining++,y(k.reversed?k.duration:0)},k._onDocumentVisibility=o,k.set=function(n,e){return nn(n,e),k},k.tick=function(n){u(((l=n)+(f-(s=s||l)))*L.speed)},k.seek=function(n){u(m(n))},k.pause=function(){k.paused=!0,o()},k.play=function(){k.paused&&(k.completed&&k.reset(),k.paused=!1,S.push(k),o(),an())},k.reverse=function(){g(),k.completed=!k.reversed,o()},k.restart=function(){k.reset(),k.play()},k.remove=function(n){cn(A(n),k)},k.reset(),k.autoplay&&k.play(),k}function un(n,e){for(var t=e.length;t--;)h(n,e[t].animatable.target)&&e.splice(t,1)}function cn(n,e){var t=e.animations,r=e.children;un(n,t);for(var a=r.length;a--;){var o=r[a],u=o.animations;un(n,u),u.length||o.children.length||r.splice(a,1)}t.length||r.length||e.pause()}return L.version="3.2.2",L.speed=1,L.suspendWhenDocumentHidden=!0,L.running=S,L.remove=function(n){for(var e=A(n),t=S.length;t--;)cn(e,S[t])},L.get=T,L.set=nn,L.convertPx=y,L.path=function(n,e){var t=w.str(n)?a(n)[0]:n,r=e||100;return function(n){return{property:n,el:t,svg:Q(t),totalLength:G(t)*(r/100)}}},L.setDashoffset=function(n){var e=G(n);return n.setAttribute("stroke-dasharray",e),e},L.stagger=function(n,e){var i=(e=void 0===e?{}:e).direction||"normal",c=e.easing?P(e.easing):null,s=e.grid,f=e.axis,l=e.from||0,d="first"===l,p="center"===l,h="last"===l,g=w.arr(n),m=g?parseFloat(n[0]):parseFloat(n),v=g?parseFloat(n[1]):0,y=B(g?n[1]:n)||0,b=e.start||0+(g?m:0),M=[],x=0;return function(n,e,t){if(d&&(l=0),p&&(l=(t-1)/2),h&&(l=t-1),!M.length){for(var r,a,o,u=0;u<t;u++)s?(r=p?(s[0]-1)/2:l%s[0],a=p?(s[1]-1)/2:Math.floor(l/s[0]),r=r-u%s[0],a=a-Math.floor(u/s[0]),o=Math.sqrt(r*r+a*a),"x"===f&&(o=-r),M.push(o="y"===f?-a:o)):M.push(Math.abs(l-u)),x=Math.max.apply(Math,M);c&&(M=M.map(function(n){return c(n/x)*x})),"reverse"===i&&(M=M.map(function(n){return f?n<0?-1*n:-n:Math.abs(x-n)}))}return b+(g?(v-m)/x:m)*(Math.round(100*M[e])/100)+y}},L.timeline=function(u){var i=L(u=void 0===u?{}:u);return i.duration=0,i.add=function(n,e){var t=S.indexOf(i),r=i.children;function a(n){n.passThrough=!0}-1<t&&S.splice(t,1);for(var o=0;o<r.length;o++)a(r[o]);t=D(n,x(M,u)),t.targets=t.targets||u.targets,n=i.duration,t.autoplay=!1,t.direction=i.direction,t.timelineOffset=w.und(e)?n:E(e,n),a(i),i.seek(t.timelineOffset),e=L(t),a(e),r.push(e),n=tn(r,u);return i.delay=n.delay,i.endDelay=n.endDelay,i.duration=n.duration,i.seek(0),i.reset(),i.autoplay&&i.play(),i},i},L.easing=P,L.penner=s,L.random=function(n,e){return Math.floor(Math.random()*(e-n+1))+n},L});
+</script>
+<script>
+/* ==========================================================================
+   Nicole Cohen — resume site interactions
+   Motion: Anime.js v3 (vendored). Strictly progressive enhancement — if the
+   library is missing the page stays fully visible and usable.
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var A = window.anime || null;
+  var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ANIMATE = !!A && !REDUCED && ('IntersectionObserver' in window);
+  var EASE = 'cubicBezier(.22,1,.36,1)';
+
+  var html = document.documentElement;
+  if (!ANIMATE) html.classList.remove('js');
+  else html.classList.add('js-ready');
+
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+  /* ---------------------------------------------------------------- *
+   * Year
+   * ---------------------------------------------------------------- */
+  var yearEl = $('#year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ---------------------------------------------------------------- *
+   * Print / save as PDF
+   * ---------------------------------------------------------------- */
+  var printBtn = $('#printBtn');
+  if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
+
+  /* ---------------------------------------------------------------- *
+   * Nav: stuck state, scroll progress, active section, mobile drawer
+   * ---------------------------------------------------------------- */
+  var nav = $('#nav');
+  var progress = $('#progress');
+  var burger = $('#burger');
+  var navLinks = $('#navLinks');
+
+  var onScroll = function () {
+    var y = window.scrollY || window.pageYOffset;
+    nav.classList.toggle('is-stuck', y > 12);
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if (progress) progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+  };
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { onScroll(); ticking = false; });
+  }, { passive: true });
+  onScroll();
+
+  if (burger) {
+    burger.addEventListener('click', function () {
+      var open = navLinks.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (open && ANIMATE) {
+        A({
+          targets: navLinks.querySelectorAll('a'),
+          translateX: [-12, 0], opacity: [0, 1],
+          duration: 400, delay: A.stagger(35), easing: EASE
+        });
+      }
+    });
+    navLinks.addEventListener('click', function (e) {
+      if (!e.target.closest('a')) return;
+      navLinks.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  var linkFor = {};
+  $('.nav__links > a[href^="#"]').forEach(function (a) { linkFor[a.getAttribute('href').slice(1)] = a; });
+  var sections = $('main section[id]');
+
+  if ('IntersectionObserver' in window && sections.length) {
+    var navObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var link = linkFor[en.target.id];
+        if (!link) return;
+        $('.nav__links > a').forEach(function (a) { a.classList.remove('is-active'); });
+        link.classList.add('is-active');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function (s) { navObs.observe(s); });
+  }
+
+  /* ---------------------------------------------------------------- *
+   * Hero entrance
+   * ---------------------------------------------------------------- */
+  if (ANIMATE) {
+    A.timeline({ easing: EASE, duration: 900 })
+      .add({ targets: '.hero .eyebrow', opacity: [0, 1], translateY: [12, 0], duration: 650 })
+      .add({
+        targets: '.hero__name .w',
+        translateY: ['110%', '0%'], opacity: [0, 1],
+        delay: A.stagger(80), duration: 1000
+      }, '-=400')
+      .add({
+        targets: ['.hero__role', '.hero__lede', '.hero__actions', '.hero__links'],
+        opacity: [0, 1], translateY: [18, 0], delay: A.stagger(80)
+      }, '-=700')
+      .add({
+        targets: '.term',
+        opacity: [0, 1], translateY: [26, 0], scale: [.98, 1], duration: 1000
+      }, '-=900');
+  }
+
+  /* ---------------------------------------------------------------- *
+   * Terminal typing effect
+   * ---------------------------------------------------------------- */
+  (function () {
+    var typers = $('[data-type]');
+    var outs = $('[data-out]');
+    if (!typers.length) return;
+
+    if (!ANIMATE) {
+      typers.forEach(function (el) { el.textContent = el.getAttribute('data-type'); });
+      return;
+    }
+
+    typers.forEach(function (el) { el.textContent = ''; });
+    outs.forEach(function (el) { el.style.opacity = 0; });
+
+    var delay = 700;
+    typers.forEach(function (el, i) {
+      var text = el.getAttribute('data-type');
+      var state = { n: 0 };
+      A({
+        targets: state, n: text.length, round: 1,
+        duration: text.length * 55, delay: delay, easing: 'linear',
+        update: function () { el.textContent = text.slice(0, state.n); }
+      });
+      delay += text.length * 55 + 180;
+
+      var out = outs[i];
+      if (out) {
+        A({
+          targets: out, opacity: [0, 1], translateY: [6, 0],
+          duration: 420, delay: delay, easing: EASE
+        });
+        delay += 460;
+      }
+    });
+  })();
+
+  /* ---------------------------------------------------------------- *
+   * Scroll reveals
+   * ---------------------------------------------------------------- */
+  var revealables = $('[data-reveal]').filter(function (el) { return !el.closest('.hero'); });
+
+  if (ANIMATE) {
+    var revObs = new IntersectionObserver(function (entries, obs) {
+      var batch = entries.filter(function (e) { return e.isIntersecting; });
+      if (!batch.length) return;
+      A({
+        targets: batch.map(function (e) { return e.target; }),
+        opacity: [0, 1], translateY: [26, 0],
+        duration: 850, delay: A.stagger(80), easing: EASE
+      });
+      batch.forEach(function (e) { obs.unobserve(e.target); });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: .12 });
+    revealables.forEach(function (el) { revObs.observe(el); });
+  } else {
+    revealables.forEach(function (el) { el.style.opacity = 1; });
+  }
+
+  /* ---------------------------------------------------------------- *
+   * Counters
+   * ---------------------------------------------------------------- */
+  var counters = $('[data-count]');
+  if (counters.length && 'IntersectionObserver' in window) {
+    var cObs = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        var end = parseFloat(el.getAttribute('data-count'));
+        if (ANIMATE) {
+          var o = { v: 0 };
+          A({
+            targets: o, v: end, duration: 1400, easing: 'easeOutExpo',
+            update: function () { el.textContent = Math.round(o.v); }
+          });
+        } else {
+          el.textContent = end;
+        }
+        obs.unobserve(el);
+      });
+    }, { threshold: .6 });
+    counters.forEach(function (el) { cObs.observe(el); });
+  }
+
+  /* ---------------------------------------------------------------- *
+   * Language bars fill on scroll
+   * ---------------------------------------------------------------- */
+  var bars = $('.lang__bar em');
+  if (bars.length && ANIMATE) {
+    var bObs = new IntersectionObserver(function (entries, obs) {
+      var batch = entries.filter(function (e) { return e.isIntersecting; });
+      if (!batch.length) return;
+      A({
+        targets: batch.map(function (e) { return e.target; }),
+        scaleX: [0, 1],
+        duration: 1100, delay: A.stagger(140), easing: EASE
+      });
+      batch.forEach(function (e) { obs.unobserve(e.target); });
+    }, { threshold: .5 });
+    bars.forEach(function (el) { bObs.observe(el); });
+  }
+
+  /* ---------------------------------------------------------------- *
+   * Timeline markers pop as each role scrolls in
+   * ---------------------------------------------------------------- */
+  var markers = $('.tl__marker');
+  if (markers.length && ANIMATE) {
+    var mObs = new IntersectionObserver(function (entries, obs) {
+      var batch = entries.filter(function (e) { return e.isIntersecting; });
+      if (!batch.length) return;
+      A({
+        targets: batch.map(function (e) { return e.target; }),
+        scale: [0, 1],
+        duration: 600, delay: A.stagger(90), easing: 'easeOutBack'
+      });
+      batch.forEach(function (e) { obs.unobserve(e.target); });
+    }, { threshold: .6 });
+    markers.forEach(function (el) { mObs.observe(el); });
+  }
+})();
+
+</script>
+</body>
+</html>
